@@ -1,0 +1,2 @@
+SUCCESS
+{"response":"Hello there! Welcome to Sali Siemen's portfolio. I'm here to help you learn more about Sali's skills, projects, and experience. How can I assist you today?","model":"gemini-2.5-flash"}

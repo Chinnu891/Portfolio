@@ -54,33 +54,28 @@ const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-gray-50 via-white to-primary-50/30 dark:from-dark-900 dark:via-dark-800 dark:to-dark-700"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-gray-50 to-white dark:from-dark-900 dark:to-dark-800"
         >
-            {/* Animated background orbs */}
+            {/* Elegant Background Lighting */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute -top-40 -right-40 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+                    className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-gradient-radial from-primary-500/20 to-transparent rounded-full blur-3xl mix-blend-screen"
                 />
                 <motion.div
-                    animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                    className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl"
-                />
-                <motion.div
-                    animate={{ y: [-20, 20, -20] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute top-1/3 left-1/4 w-64 h-64 bg-primary-400/10 rounded-full blur-2xl"
+                    animate={{ scale: [1.1, 1, 1.1], opacity: [0.1, 0.2, 0.1] }}
+                    transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+                    className="absolute -bottom-[20%] -left-[10%] w-[800px] h-[800px] bg-gradient-radial from-accent-400/20 to-transparent rounded-full blur-3xl mix-blend-screen"
                 />
             </div>
 
-            {/* Grid pattern overlay */}
+            {/* Subtle Grid Pattern Overlay */}
             <div
-                className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]"
+                className="absolute inset-0 opacity-[0.015] dark:opacity-[0.03]"
                 style={{
-                    backgroundImage: 'linear-gradient(#6366f1 1px, transparent 1px), linear-gradient(to right, #6366f1 1px, transparent 1px)',
-                    backgroundSize: '60px 60px',
+                    backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px)',
+                    backgroundSize: '80px 80px',
                 }}
             />
 
@@ -102,10 +97,10 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.1 }}
-                    className="text-5xl sm:text-7xl font-black mb-6 leading-tight"
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 leading-[1.1] tracking-tight"
                 >
-                    <span className="text-gray-900 dark:text-white">Hi, I'm </span>
-                    <span className="gradient-text">Sali Siemen</span>
+                    <span className="text-gray-900 dark:text-white block sm:inline">Hi, I'm </span>
+                    <span className="gradient-text pb-1 sm:pb-2 whitespace-nowrap">Sali Siemen</span>
                 </motion.h1>
 
                 {/* Animated role */}
@@ -113,7 +108,7 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
-                    className="text-2xl sm:text-3xl font-semibold text-gray-600 dark:text-gray-300 mb-6 h-10"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 h-8 sm:h-12"
                 >
                     <span ref={roleRef} className="text-primary-500 dark:text-primary-400"></span>
                     <span className="animate-pulse text-primary-500">|</span>
@@ -124,7 +119,7 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
-                    className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+                    className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
                 >
                     Building production-grade systems from scratch — self-hosted cloud infrastructure,
                     full-stack web apps, and securing critical systems.
@@ -135,17 +130,22 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+                    className="flex flex-col sm:flex-row w-full sm:w-auto gap-3 sm:gap-5 justify-center mt-6 mb-12 sm:mb-16 px-4 sm:px-0"
                 >
+                    {/* Primary Metallic Button */}
                     <button
                         onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-accent-500 text-white font-semibold rounded-2xl shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 transition-all duration-300 hover:-translate-y-0.5"
+                        className="group relative w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-gradient-to-b from-primary-400 to-primary-600 dark:from-primary-500 dark:to-primary-700 text-white font-semibold rounded-2xl shadow-[0_4px_20px_rgba(99,102,241,0.4)] hover:shadow-[0_8px_30px_rgba(99,102,241,0.6)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
                     >
-                        View My Projects
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay" />
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                            View My Projects
+                        </span>
                     </button>
+                    {/* Secondary Frosted Glass Pill */}
                     <button
                         onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="px-8 py-4 bg-white dark:bg-dark-700 text-gray-700 dark:text-gray-200 font-semibold rounded-2xl border border-gray-200 dark:border-dark-600 hover:border-primary-400 dark:hover:border-primary-500 hover:text-primary-500 dark:hover:text-primary-400 transition-all duration-300 hover:-translate-y-0.5 shadow-md"
+                        className="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-white/50 dark:bg-white/5 text-gray-800 dark:text-gray-200 font-medium rounded-2xl border border-gray-200/50 dark:border-white/10 backdrop-blur-md hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 shadow-sm"
                     >
                         Get In Touch
                     </button>
@@ -169,9 +169,9 @@ const Hero: React.FC = () => {
                             target={href.startsWith('mailto') ? undefined : '_blank'}
                             rel="noopener noreferrer"
                             aria-label={label}
-                            className="w-12 h-12 rounded-2xl bg-gray-100 dark:bg-dark-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-500 transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-primary-500/30"
+                            className="w-14 h-14 rounded-2xl flex items-center justify-center text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md glass dark:glass-dark group"
                         >
-                            <Icon size={20} />
+                            <Icon size={24} className="group-hover:text-primary-500 transition-colors" />
                         </a>
                     ))}
                 </motion.div>
