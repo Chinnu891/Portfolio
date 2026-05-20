@@ -52,8 +52,8 @@ const MessageBubble: React.FC<{ msg: Message }> = ({ msg }) => (
         {/* Avatar */}
         <div
             className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'ai'
-                    ? 'bg-gradient-to-br from-primary-600 to-primary-400'
-                    : 'bg-gradient-to-br from-accent-500 to-accent-400'
+                ? 'bg-gradient-to-br from-primary-600 to-primary-400'
+                : 'bg-gradient-to-br from-accent-500 to-accent-400'
                 }`}
         >
             {msg.role === 'ai' ? <Bot size={14} className="text-white" /> : <User size={14} className="text-white" />}

@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -26,10 +26,10 @@ export default {
           600: '#0284c7',
         },
         dark: {
-          900: '#0a0a0f',
-          800: '#111118',
-          700: '#1a1a2e',
-          600: '#16213e',
+          900: '#050505', // True rich black for premium depth
+          800: '#0a0a0a', // Slightly lighter for elevated surfaces
+          700: '#121212', // For cards and distinct components
+          600: '#1a1a1a', // Borders / subtle interactive elements
         },
       },
       animation: {
