@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -13,6 +13,13 @@ const Hero: React.FC = () => {
     const indexRef = useRef(0);
     const charRef = useRef(0);
     const deletingRef = useRef(false);
+    const [copiedEmail, setCopiedEmail] = useState(false);
+
+    const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        navigator.clipboard.writeText('salisiemen891@gmail.com');
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 2000);
+    };
 
     // Typewriter effect
     useEffect(() => {
@@ -162,18 +169,34 @@ const Hero: React.FC = () => {
                         { Icon: Github, href: 'https://github.com/Chinnu891', label: 'GitHub' },
                         { Icon: Linkedin, href: 'https://www.linkedin.com/in/sali-siemen', label: 'LinkedIn' },
                         { Icon: Mail, href: 'mailto:salisiemen891@gmail.com', label: 'Email' },
-                    ].map(({ Icon, href, label }) => (
-                        <a
-                            key={label}
-                            href={href}
-                            target={href.startsWith('mailto') ? undefined : '_blank'}
-                            rel="noopener noreferrer"
-                            aria-label={label}
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md glass dark:glass-dark group"
-                        >
-                            <Icon size={24} className="group-hover:text-primary-500 transition-colors" />
-                        </a>
-                    ))}
+                    ].map(({ Icon, href, label }) => {
+                        const isEmail = label === 'Email';
+                        return (
+                            <a
+                                key={label}
+                                href={href}
+                                onClick={isEmail ? handleEmailClick : undefined}
+                                target={href.startsWith('mailto') ? undefined : '_blank'}
+                                rel="noopener noreferrer"
+                                aria-label={label}
+                                className="relative w-14 h-14 rounded-2xl flex items-center justify-center text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md glass dark:glass-dark group"
+                            >
+                                <Icon size={24} className="group-hover:text-primary-500 transition-colors" />
+                                <AnimatePresence>
+                                    {isEmail && copiedEmail && (
+                                        <motion.span
+                                            initial={{ opacity: 0, y: 10, x: '-50%' }}
+                                            animate={{ opacity: 1, y: 0, x: '-50%' }}
+                                            exit={{ opacity: 0, y: 10, x: '-50%' }}
+                                            className="absolute -top-10 left-1/2 bg-primary-600 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap"
+                                        >
+                                            Copied!
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </a>
+                        );
+                    })}
                 </motion.div>
 
                 {/* Scroll indicator */}
